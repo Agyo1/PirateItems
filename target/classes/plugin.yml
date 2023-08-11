@@ -1,0 +1,11 @@
+name: PirateItems
+version: '1.0-SNAPSHOT'
+main: com.agyo.pirateitems.PirateItems
+api-version: '1.20'
+commands:
+  testitem:
+    description: gives the player a test item.
+  sword:
+    description: gives the player both swords.
+  e:
+    description: Opens an admin menu with all of the items.
