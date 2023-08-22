@@ -1,5 +1,7 @@
 package com.agyo.pirateitems.commands.test;
 
+import com.agyo.pirateitems.instance.armor.Armor;
+import com.agyo.pirateitems.instance.armor.ArmorType;
 import com.agyo.pirateitems.instance.swords.Sword;
 import com.agyo.pirateitems.instance.swords.SwordType;
 import org.bukkit.command.Command;
@@ -17,6 +19,8 @@ public class SwordCommand implements CommandExecutor {
                 Sword sword = new Sword(player, type);
                 sword.enable();
             }
+            Armor armor = new Armor(player, ArmorType.JONES_ARMOR);
+            armor.disable();
         }
         return false;
     }

@@ -1,12 +1,15 @@
 package com.agyo.pirateitems.commands.live.ui;
 
+import com.agyo.pirateitems.instance.armor.Armor;
+import com.agyo.pirateitems.instance.armor.ArmorType;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
-import org.bukkit.inventory.ItemStack;
+
+import static java.lang.Integer.parseInt;
 
 public class EUIListener implements Listener {
     @EventHandler
@@ -18,7 +21,7 @@ public class EUIListener implements Listener {
                 if (e.getRawSlot() == 10) {
                     new SwordUI((Player) e.getWhoClicked());
                 } else if (e.getRawSlot() == 11) {
-                    //armor
+                    new ArmorUI((Player) e.getWhoClicked());
                 } else if (e.getRawSlot() == 12) {
                     //utility
                 } else if (e.getRawSlot() == 49) {
@@ -28,8 +31,24 @@ public class EUIListener implements Listener {
                 e.setCancelled(true);
                 if (e.getCurrentItem().getType().equals(Material.BARRIER)) {
                     e.getWhoClicked().closeInventory();
+                } else if(e.getCurrentItem().getType().equals(Material.ARROW)) {
+                    new EUI(player);
                 } else if (!(e.getCurrentItem().getType().equals(Material.LIGHT_GRAY_STAINED_GLASS_PANE))){
                     e.getWhoClicked().getInventory().addItem(e.getCurrentItem());
+                }
+            } else if (e.getView().getTitle().endsWith("Admin Menu | Armor")) {
+                e.setCancelled(true);
+                if (e.getCurrentItem().getType().equals(Material.BARRIER)) {
+                    e.getWhoClicked().closeInventory();
+                } else if(e.getCurrentItem().getType().equals(Material.ARROW)) {
+                    new EUI(player);
+                } else if (!(e.getCurrentItem().getType().equals(Material.LIGHT_GRAY_STAINED_GLASS_PANE))){
+                    for (ArmorType armorType : ArmorType.values()) {
+                        if (e.getCurrentItem().getItemMeta().getDisplayName().equals(armorType.getName())) {
+                            Armor armor = new Armor(player, armorType);
+                            armor.enable();
+                        }
+                    }
                 }
             }
         }

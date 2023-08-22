@@ -35,7 +35,7 @@ public class Sword extends PirateItem {
             lore.add(" ");
             lore.add(swordType.getAbilityType().getDisplay() + swordType.getAbilityType().getInteractionType().getDisplay());
             lore.add(swordType.getAbilityType().getDescription());
-            lore.add(ChatColor.DARK_GRAY + "Mana cost: " + ChatColor.DARK_AQUA  + swordType.getAbilityType().getMana());
+            lore.add(ChatColor.DARK_GRAY + "Mana cost: " + ChatColor.DARK_AQUA + swordType.getAbilityType().getMana());
         }
 
         lore.add("");

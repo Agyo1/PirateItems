@@ -30,7 +30,13 @@ public class SwordUI {
         frameMeta.setDisplayName(" ");
         frame.setItemMeta(frameMeta);
 
-        for (int i : new int[]{45, 46, 47, 48, 50, 51, 52, 53}) {
+
+        ItemStack back = new ItemStack(Material.ARROW);
+        ItemMeta backMeta = back.getItemMeta();
+        backMeta.setDisplayName(ChatColor.GREEN + "Go Back");
+        back.setItemMeta(backMeta);
+
+        for (int i : new int[]{46, 47, 48, 50, 51, 52, 53}) {
             inv.setItem(i, frame);
         }
 
@@ -59,6 +65,7 @@ public class SwordUI {
             inv.addItem(is);
         }
 
+        inv.setItem(45, back);
         inv.setItem(49, close);
         player.openInventory(inv);
     }

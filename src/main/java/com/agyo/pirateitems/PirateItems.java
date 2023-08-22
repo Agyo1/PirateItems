@@ -6,7 +6,6 @@ import com.agyo.pirateitems.commands.test.SwordCommand;
 import com.agyo.pirateitems.commands.test.TestItemCommand;
 import com.agyo.pirateitems.instance.listener.FireVeilAbility;
 import com.agyo.pirateitems.instance.listener.RaiseTheCrewAbility;
-import com.agyo.pirateitems.instance.swords.SwordUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
