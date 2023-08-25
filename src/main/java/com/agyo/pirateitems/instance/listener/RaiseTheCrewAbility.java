@@ -36,26 +36,30 @@ public class RaiseTheCrewAbility implements Listener {
         if (player.getInventory().getItemInMainHand() != null || player.getInventory().getItemInOffHand() != null) {
             if (player.getInventory().getItemInMainHand().hasItemMeta()) {
                 if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-                    if (player.getInventory().getItemInMainHand().getItemMeta().getLocalizedName().equals(SwordType.JONES_BLADE.getName()) || player.getInventory().getItemInOffHand().getItemMeta().getLocalizedName().equals(SwordType.JONES_BLADE.getName())) {
-                        Entity zombie = player.getWorld().spawnEntity(player.getLocation().multiply(1), EntityType.ZOMBIE);
-                        zombie.setCustomNameVisible(true);
-                        zombie.setCustomName(ChatColor.GREEN + String.valueOf(zombie.getTicksLived()));
-                        uuid = zombie.getUniqueId();
-                        player.sendMessage(ChatColor.GREEN + "Used " + SwordType.JONES_BLADE.getAbilityType().getDisplay() + ChatColor.GREEN + " for " + SwordType.JONES_BLADE.getAbilityType().getMana() + ChatColor.GREEN + " mana.");
-                        task = Bukkit.getScheduler().runTaskTimer(pirateItems, new Runnable() {
-                            @Override
-                            public void run() {
-                                if (zombie.getTicksLived() >= 200) {
-                                    zombie.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, zombie.getLocation(), 10);
-                                    zombie.remove();
-                                    task.cancel();
-                                    for (Player player : Bukkit.getWorld("pirate_world").getPlayers()) {
-                                        player.sendMessage(ChatColor.RED + "Task canceled");
+                    try {
+                        if (player.getInventory().getItemInMainHand().getItemMeta().getLocalizedName().equals(SwordType.JONES_BLADE.getName()) || player.getInventory().getItemInOffHand().getItemMeta().getLocalizedName().equals(SwordType.JONES_BLADE.getName())) {
+                            Entity zombie = player.getWorld().spawnEntity(player.getLocation().multiply(1), EntityType.ZOMBIE);
+                            zombie.setCustomNameVisible(true);
+                            zombie.setCustomName(ChatColor.GREEN + String.valueOf(zombie.getTicksLived()));
+                            uuid = zombie.getUniqueId();
+                            player.sendMessage(ChatColor.GREEN + "Used " + SwordType.JONES_BLADE.getAbilityType().getDisplay() + ChatColor.GREEN + " for " + SwordType.JONES_BLADE.getAbilityType().getMana() + ChatColor.GREEN + " mana.");
+                            task = Bukkit.getScheduler().runTaskTimer(pirateItems, new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (zombie.getTicksLived() >= 200) {
+                                        zombie.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, zombie.getLocation(), 10);
+                                        zombie.remove();
+                                        task.cancel();
+                                        for (Player player : Bukkit.getWorld("pirate_world").getPlayers()) {
+                                            player.sendMessage(ChatColor.RED + "Task canceled");
+                                        }
                                     }
+                                    zombie.setCustomName(ChatColor.GREEN + String.valueOf(zombie.getTicksLived()));
                                 }
-                                zombie.setCustomName(ChatColor.GREEN + String.valueOf(zombie.getTicksLived()));
-                            }
-                        }, 0, 5);
+                            }, 0, 5);
+                        }
+                    } catch (NullPointerException ignored) {
+
                     }
                 }
             }

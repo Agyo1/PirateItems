@@ -8,7 +8,8 @@ public enum SwordType {
 
     ROOKIE_SWORD(Rarity.COMMON, Rarity.COMMON.getColor() + "Rookie Sword", 5, Material.WOODEN_SWORD, "SWORD", AbilityType.NONE),
     JONES_BLADE(Rarity.UNIQUE, Rarity.UNIQUE.getColor() + "Jones' Blade", 300, Material.IRON_SWORD, "BLADE", AbilityType.RAISE_THE_CREW),
-    CAPTAIN_SWORD(Rarity.LEGENDARY, Rarity.LEGENDARY.getColor() + "Captain's Sword", 100, Material.GOLDEN_SWORD, "SWORD", AbilityType.NONE);
+    CAPTAIN_SWORD(Rarity.LEGENDARY, Rarity.LEGENDARY.getColor() + "Captain's Sword", 100, Material.GOLDEN_SWORD, "SWORD", AbilityType.NONE),
+    BLACKBEARDS_CUTLASS(Rarity.MYTHIC, Rarity.MYTHIC.getColor() + "Blackbeard's Cutlass", 125, Material.NETHERITE_SWORD, "CUTLASS", AbilityType.TELEPORT);
 
 
     private Rarity rarity;

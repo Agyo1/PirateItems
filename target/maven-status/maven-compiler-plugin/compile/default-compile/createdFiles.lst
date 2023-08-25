@@ -9,6 +9,7 @@ com\agyo\pirateitems\instance\armor\type\PlayerHelmet.class
 com\agyo\pirateitems\instance\swords\Sword.class
 com\agyo\pirateitems\commands\live\ui\EUIListener.class
 com\agyo\pirateitems\instance\armor\type\Boots.class
+com\agyo\pirateitems\instance\listener\TeleportAbility.class
 com\agyo\pirateitems\commands\live\ui\ArmorUI.class
 com\agyo\pirateitems\commands\test\TestItemCommand.class
 com\agyo\pirateitems\commands\live\ECommand.class
@@ -17,9 +18,12 @@ com\agyo\pirateitems\instance\listener\FireVeilAbility.class
 com\agyo\pirateitems\PirateItems.class
 com\agyo\pirateitems\instance\armor\ArmorType.class
 com\agyo\pirateitems\instance\listener\RaiseTheCrewAbility$1.class
+com\agyo\pirateitems\instance\utility\UtilityType.class
 com\agyo\pirateitems\instance\armor\type\ChestPlate.class
 com\agyo\pirateitems\instance\ability\AbilityType.class
 com\agyo\pirateitems\instance\ability\InteractionType.class
 com\agyo\pirateitems\instance\Rarity.class
 com\agyo\pirateitems\commands\live\ui\SwordUI.class
 com\agyo\pirateitems\instance\swords\SwordType.class
+com\agyo\pirateitems\instance\listener\AgyosStickAbility.class
+com\agyo\pirateitems\instance\utility\Utility.class

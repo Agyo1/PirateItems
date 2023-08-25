@@ -2,6 +2,7 @@ package com.agyo.pirateitems.commands.live.ui;
 
 import com.agyo.pirateitems.instance.armor.Armor;
 import com.agyo.pirateitems.instance.armor.ArmorType;
+import com.agyo.pirateitems.instance.utility.UtilityType;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -23,7 +24,7 @@ public class EUIListener implements Listener {
                 } else if (e.getRawSlot() == 11) {
                     new ArmorUI((Player) e.getWhoClicked());
                 } else if (e.getRawSlot() == 12) {
-                    //utility
+                    new UtilityUI((Player) e.getWhoClicked());
                 } else if (e.getRawSlot() == 49) {
                     player.closeInventory();
                 }
@@ -49,6 +50,15 @@ public class EUIListener implements Listener {
                             armor.enable();
                         }
                     }
+                }
+            } else if (e.getView().getTitle().endsWith("Admin Menu | Utility")) {
+                e.setCancelled(true);
+                if (e.getCurrentItem().getType().equals(Material.BARRIER)) {
+                    e.getWhoClicked().closeInventory();
+                } else if(e.getCurrentItem().getType().equals(Material.ARROW)) {
+                    new EUI(player);
+                } else if (!(e.getCurrentItem().getType().equals(Material.LIGHT_GRAY_STAINED_GLASS_PANE))){
+                    e.getWhoClicked().getInventory().addItem(e.getCurrentItem());
                 }
             }
         }
